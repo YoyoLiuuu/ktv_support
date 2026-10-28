@@ -1,0 +1,261 @@
+:root {
+  --bg: #120a1f;
+  --bg-2: #1b1030;
+  --card: #1f1336cc;
+  --line: #ffffff1a;
+  --text: #f6efff;
+  --muted: #b5a7cc;
+  --pink: #ff4fa3;
+  --cyan: #3de0ff;
+  --yellow: #ffd23f;
+  --good: #4ee39a;
+  --bad: #ff6b7a;
+  --radius: 16px;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font: 16px/1.5 Inter, system-ui, -apple-system, "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(900px 500px at 10% -10%, #ff4fa333, transparent 60%),
+    radial-gradient(800px 500px at 110% 10%, #3de0ff26, transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+a { color: var(--cyan); }
+h1, h2 { font-family: "Bricolage Grotesque", Inter, sans-serif; margin: 0; letter-spacing: -0.02em; }
+h2 { font-size: 1.25rem; font-weight: 800; }
+.muted { color: var(--muted); }
+.small { font-size: 0.875rem; }
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #120a1fd9;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font: 800 1.15rem "Bricolage Grotesque", sans-serif;
+}
+.brand-mark { font-size: 1.3rem; }
+.whoami { display: flex; align-items: center; gap: 8px; font-size: 0.875rem; color: var(--muted); }
+.whoami input { width: 130px; padding: 6px 10px; }
+
+main {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 24px 16px 80px;
+  display: grid;
+  gap: 20px;
+}
+
+.hero { padding: 24px 0 4px; }
+.hero h1 { font-size: clamp(2rem, 7vw, 3.4rem); line-height: 1.05; font-weight: 800; }
+.hero p { color: var(--muted); max-width: 56ch; margin: 14px 0 0; }
+.glow {
+  background: linear-gradient(90deg, var(--pink), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: grid;
+  gap: 14px;
+}
+
+.row-form { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; }
+.field { display: grid; gap: 4px; font-size: 0.8rem; color: var(--muted); min-width: 0; }
+.field.grow { flex: 1 1 220px; }
+
+input {
+  font: inherit;
+  color: var(--text);
+  background: #0c0616;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  min-width: 0;
+  width: 100%;
+}
+input:focus { outline: 2px solid var(--cyan); outline-offset: 1px; }
+input[type="date"] { color-scheme: dark; }
+
+.btn {
+  font: 600 0.95rem Inter, sans-serif;
+  color: var(--text);
+  background: #ffffff12;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+.btn:hover { background: #ffffff1f; }
+.btn.primary { background: linear-gradient(135deg, var(--pink), #b14bff); border-color: transparent; }
+.btn.primary:hover { filter: brightness(1.1); }
+.btn:disabled { opacity: 0.6; cursor: progress; }
+
+.group-title { margin: 8px 0 10px; font-size: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.event-list { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+.event-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: var(--text);
+  text-decoration: none;
+}
+.event-link:hover { border-color: var(--pink); }
+.event-date {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  flex: none;
+  border-radius: 12px;
+  background: #0c0616;
+  border: 1px solid var(--line);
+  line-height: 1.1;
+}
+.event-date .mon { font-size: 0.7rem; text-transform: uppercase; color: var(--pink); font-weight: 600; }
+.event-date .day { font: 800 1.35rem "Bricolage Grotesque", sans-serif; }
+.event-info { display: grid; min-width: 0; flex: 1; }
+.event-info strong, .event-info span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.event-info .muted { font-size: 0.85rem; }
+.chev { font-size: 1.6rem; color: var(--muted); }
+
+.event-hero { display: grid; gap: 6px; }
+.event-hero h1 { font-size: clamp(1.8rem, 6vw, 2.8rem); font-weight: 800; line-height: 1.1; overflow-wrap: anywhere; }
+.back { font-size: 0.9rem; text-decoration: none; color: var(--muted); }
+.eyebrow { margin: 6px 0 0; color: var(--pink); font-weight: 600; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 8px; font-size: 0.9rem; }
+
+.manual summary { cursor: pointer; color: var(--muted); font-size: 0.9rem; }
+.manual form { margin-top: 10px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips:empty { display: none; }
+.chip {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #0c0616;
+  max-width: 100%;
+  overflow: hidden;
+}
+.chip.active { border-color: var(--cyan); background: #3de0ff1a; }
+.chip button { font: inherit; color: var(--text); background: none; border: 0; cursor: pointer; }
+.chip-main { padding: 6px 4px 6px 12px; font-size: 0.85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chip-x { padding: 0 12px 0 8px; color: var(--muted) !important; font-size: 1.1rem; }
+.chip-x:hover { color: var(--bad) !important; }
+
+.songs-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.songs-toolbar h2 { margin-right: auto; }
+.songs-toolbar input[type="search"] { width: auto; flex: 1 1 200px; padding: 8px 12px; }
+.toggle { display: flex; gap: 6px; align-items: center; font-size: 0.85rem; color: var(--muted); cursor: pointer; }
+.toggle input { width: auto; }
+.songs-card > p { margin: -6px 0 0; }
+
+.songs { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.song {
+  display: grid;
+  grid-template-columns: 36px 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #0c061699;
+  border: 1px solid var(--line);
+}
+.song:nth-child(-n+3):not(.sung) .rank { color: var(--yellow); }
+.song.sung { opacity: 0.45; }
+.song.sung .song-title { text-decoration: line-through; }
+.rank { font: 800 1.2rem "Bricolage Grotesque", sans-serif; text-align: center; color: var(--muted); }
+.song-main { min-width: 0; }
+.song-title { font-weight: 600; overflow-wrap: anywhere; }
+.song-artist { font-size: 0.875rem; overflow-wrap: anywhere; }
+.song-meta { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; margin-top: 4px; font-size: 0.75rem; }
+.badge { padding: 1px 8px; border-radius: 999px; background: #ffffff12; color: var(--muted); }
+.badge.hot { background: #ff4fa326; color: #ffb3d6; }
+.mini { color: var(--muted); text-decoration: none; }
+.mini:hover { color: var(--cyan); }
+
+.vote { display: grid; justify-items: center; gap: 0; }
+.vote-btn, .sung-btn {
+  font: inherit;
+  width: 38px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+}
+.vote-btn:hover, .sung-btn:hover { background: #ffffff14; }
+.vote-btn.up.on { color: var(--good); background: #4ee39a1f; }
+.vote-btn.down.on { color: var(--bad); background: #ff6b7a1f; }
+.net { font-weight: 700; font-size: 0.9rem; min-width: 2ch; text-align: center; }
+.net.pos { color: var(--good); }
+.net.neg { color: var(--bad); }
+.sung-btn { border-color: var(--line); height: 38px; }
+.sung-btn.on { color: var(--good); border-color: var(--good); }
+.empty { padding: 24px; text-align: center; }
+
+.export-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  max-width: calc(100% - 32px);
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--bg);
+  font-weight: 600;
+  box-shadow: 0 8px 30px #0008;
+  z-index: 20;
+}
+#toast.error { background: var(--bad); color: #fff; }
+
+@media (max-width: 520px) {
+  .whoami > span { display: none; }
+  .whoami input { width: 110px; }
+  .card { padding: 16px; }
+  .song { grid-template-columns: 22px 1fr auto auto; padding: 10px 8px; gap: 6px; }
+  .vote-btn { width: 32px; }
+  .sung-btn { width: 32px; height: 32px; }
+  .rank { font-size: 1rem; }
+}

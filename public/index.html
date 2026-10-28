@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KTV Night</title>
+  <meta name="description" content="Pool everyone's Spotify playlists, vote on songs, and take the list to KTV.">
+  <meta name="theme-color" content="#120a1f">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="/" class="brand" data-link>
+      <span class="brand-mark" aria-hidden="true">🎤</span>
+      <span>KTV Night</span>
+    </a>
+    <label class="whoami">
+      <span>You are</span>
+      <input id="nickname" maxlength="40" placeholder="your name" autocomplete="nickname">
+    </label>
+  </header>
+  <main id="app" aria-live="polite"></main>
+  <div id="toast" role="status" hidden></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
